@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-wrapper">
+        <h1>✍️ Sign Up Form</h1>
+        <p class="subtitle">Fill in the details below to create your account</p>
+
+        <form id="registrationForm" class="registration-form">
+          <!-- Full Name -->
+          <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <div class="input-wrapper">
+              <input
+                id="fullName"
+                type="text"
+                placeholder="Enter your full name"
+                autocomplete="off"
+              />
+              <span class="validation-icon"></span>
+            </div>
+            <div class="error-message" id="fullNameError"></div>
+            <div class="help-text">Must be between 2-50 characters</div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <div class="input-wrapper">
+              <input
+                id="email"
+                type="email"
+                placeholder="example@email.com"
+                autocomplete="off"
+              />
+              <span class="validation-icon"></span>
+            </div>
+            <div class="error-message" id="emailError"></div>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label for="password">Password *</label>
+            <div class="input-wrapper">
+              <input
+                id="password"
+                type="password"
+                placeholder="Create a strong password"
+              />
+              <span class="validation-icon"></span>
+            </div>
+            <div class="password-strength">
+              <div class="strength-bar">
+                <div id="strengthMeter" class="strength-meter"></div>
+              </div>
+              <div id="strengthText" class="strength-text"></div>
+            </div>
+            <div class="error-message" id="passwordError"></div>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password *</label>
+            <div class="input-wrapper">
+              <input
+                id="confirmPassword"
+                type="password"
+                placeholder="Re-enter your password"
+              />
+              <span class="validation-icon"></span>
+            </div>
+            <div class="error-message" id="confirmPasswordError"></div>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <div class="input-wrapper">
+              <input
+                id="phone"
+                type="tel"
+                placeholder="0901234567"
+                autocomplete="off"
+                maxlength="12"
+              />
+              <span class="validation-icon"></span>
+            </div>
+            <div class="error-message" id="phoneError"></div>
+            <div class="help-text">Format: XXXXXXXXXX (auto-formatted)</div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn-submit" disabled>
+            Create Account
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">✅</div>
+        <h2>Account Created Successfully!</h2>
+        <div id="modalInfo" class="modal-info"></div>
+        <button id="modalClose" class="btn-modal-close">Close</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
