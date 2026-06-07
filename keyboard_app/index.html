@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keyboard Navigation App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>🎹 Keyboard Navigation Demo</h1>
+      <p class="instructions">
+        Press <kbd>Ctrl+K</kbd> for command palette | Arrow keys to navigate
+        gallery | <kbd>1-9</kbd> to jump to image
+      </p>
+    </header>
+
+    <main class="main">
+      <!-- Gallery Section -->
+      <section class="gallery-section">
+        <h2>📸 Image Gallery</h2>
+        <div class="gallery-container">
+          <div class="gallery-wrapper">
+            <img id="mainImage" src="" alt="Gallery image" class="main-image" />
+            <div class="gallery-controls">
+              <button id="prevBtn" class="nav-btn" aria-label="Previous image">
+                ← Previous
+              </button>
+              <span id="imageCounter" class="image-counter">1/9</span>
+              <button id="nextBtn" class="nav-btn" aria-label="Next image">
+                Next →
+              </button>
+              <button id="playBtn" class="nav-btn" aria-label="Play slideshow">
+                ▶ Play
+              </button>
+            </div>
+          </div>
+
+          <!-- Thumbnails -->
+          <div class="thumbnails">
+            <div id="thumbnailsContainer" class="thumbnails-container"></div>
+          </div>
+        </div>
+
+        <!-- Keyboard Help -->
+        <div class="keyboard-help">
+          <h3>⌨️ Gallery Keyboard Shortcuts</h3>
+          <ul>
+            <li><kbd>←</kbd> / <kbd>→</kbd> - Previous / Next image</li>
+            <li><kbd>1-9</kbd> - Jump to image</li>
+            <li><kbd>Space</kbd> - Play / Pause slideshow</li>
+            <li><kbd>Escape</kbd> - Close any modal</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Command Palette Section -->
+      <section class="commands-section">
+        <h2>⌘ Command Palette</h2>
+        <p>
+          Press <kbd>Ctrl+K</kbd> or click below to open the command palette
+        </p>
+        <button
+          id="openPaletteBtn"
+          class="btn-primary"
+          aria-label="Open command palette"
+        >
+          Open Command Palette
+        </button>
+
+        <div class="keyboard-help">
+          <h3>⌨️ Command Palette Shortcuts</h3>
+          <ul>
+            <li><kbd>Ctrl+K</kbd> - Open / Close palette</li>
+            <li><kbd>↑</kbd> / <kbd>↓</kbd> - Navigate commands</li>
+            <li><kbd>Enter</kbd> - Execute command</li>
+            <li><kbd>Escape</kbd> - Close palette</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose" aria-label="Close modal">
+          &times;
+        </button>
+        <img id="modalImage" src="" alt="Full size image" class="modal-image" />
+        <p id="modalCaption" class="modal-caption"></p>
+      </div>
+    </div>
+
+    <!-- Command Palette Modal -->
+    <div
+      id="commandPalette"
+      class="command-palette hidden"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="palette-content">
+        <div class="palette-header">
+          <input
+            id="paletteInput"
+            type="text"
+            placeholder="Type command name..."
+            class="palette-search"
+            autocomplete="off"
+            aria-label="Search commands"
+          />
+        </div>
+        <ul id="commandsList" class="commands-list" role="listbox"></ul>
+        <div class="palette-footer">
+          <p>
+            <kbd>↑↓</kbd> Navigate | <kbd>Enter</kbd> Select |
+            <kbd>Esc</kbd> Close
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
