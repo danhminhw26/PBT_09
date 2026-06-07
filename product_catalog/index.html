@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Catalog</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <h1>🛍️ Product Store</h1>
+        <div class="header-controls">
+          <div class="search-box">
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Search products..."
+            />
+          </div>
+          <button
+            id="darkModeToggle"
+            class="btn-dark-mode"
+            title="Toggle dark mode"
+          >
+            🌙
+          </button>
+          <div class="cart-icon">
+            🛒
+            <span id="cartBadge" class="badge">0</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="sidebar">
+        <div class="sidebar-section">
+          <h3>Categories</h3>
+          <div class="category-filters">
+            <button class="category-btn active" data-category="all">
+              All Categories
+            </button>
+            <button class="category-btn" data-category="phone">
+              📱 Phones
+            </button>
+            <button class="category-btn" data-category="laptop">
+              💻 Laptops
+            </button>
+            <button class="category-btn" data-category="tablet">
+              📲 Tablets
+            </button>
+            <button class="category-btn" data-category="accessory">
+              🎧 Accessories
+            </button>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Sort By</h3>
+          <select id="sortSelect" class="sort-select">
+            <option value="default">Default</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A to Z</option>
+            <option value="name-desc">Name: Z to A</option>
+            <option value="rating-desc">Highest Rating</option>
+          </select>
+        </div>
+      </aside>
+
+      <section class="products-section">
+        <div id="productsGrid" class="products-grid"></div>
+        <div id="noResults" class="no-results">
+          <p>No products found. Try another search! 🔍</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- MODAL -->
+    <div id="productModal" class="modal hidden">
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <div class="modal-body">
+          <img id="modalImage" src="" alt="Product" class="modal-image" />
+          <div class="modal-details">
+            <h2 id="modalName"></h2>
+            <div class="modal-rating">
+              <span id="modalRating"></span>
+              <span id="modalRatingStars"></span>
+            </div>
+            <p id="modalCategory" class="modal-category"></p>
+            <p id="modalDescription" class="modal-description"></p>
+            <div class="modal-stock">
+              <span id="modalStockStatus"></span>
+            </div>
+            <div class="modal-footer">
+              <h3 id="modalPrice"></h3>
+              <button id="modalAddCart" class="btn-primary">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
